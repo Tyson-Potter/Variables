@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Counter</h1>
+    <div id="count" class="counts">0</div>
+    <div class="button-container">
+      <button id="add" class="adds">1+</button>
+      <button id="minus" class="minus">-1</button>
+    </div>
+  </body>
+  <style>
+    .adds {
+      text-align: center;
+      background-color: orangered;
+      font-size: 20px;
+      padding: 15px 32px;
+    }
+    .minus {
+      text-align: center;
+      background-color: yellow;
+      font-size: 20px;
+      padding: 15px 32px;
+    }
+    .counts {
+      text-align: center;
+      font-size: 300px;
+      color: purple;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  </style>
+  <script>
+    console.log("Hello,World");
+
+    //Search the 'document' for an element with matching ID;
+    // Assign the returned result into a const variable.
+    const countElement = document.getElementById("count");
+    const addButtonElement = document.getElementById("add");
+    const minusButtonElement = document.getElementById("minus");
+
+    addButtonElement.addEventListener("click", function () {
+      const currentCountString = countElement.innerText;
+      const currentCountNumber = Number(currentCountString);
+      const newCountNumber = currentCountNumber + 1;
+      countElement.innerText = newCountNumber;
+      //you cannot re assign const varible-even objects
+      // but you can re assign properties on an object
+
+      //~~~~~~~~~~~~~
+      //one liner..... is more clean but less maintanable
+      // countElement.innerText = Number(countElement.innerText) + 1;
+    });
+
+    minusButtonElement.addEventListener("click", function () {
+      let currentCount = Number(countElement.innerText);
+      currentCount = currentCount - 1;
+      countElement.innerText = currentCount;
+    });
+  </script>
+</html>
